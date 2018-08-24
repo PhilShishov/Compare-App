@@ -14,7 +14,7 @@ Main function: Compare XML & XSD files -> Search for differences -> Add them to 
 - Add all missing nodes to XML
 - Add a chosen node to XML
 - Add a chosen node and its children to XML 
-4. Save XML file ot a new or already existing file
+4. Save XML to a new or already existing XML
 
 ## MVVM pattern and Prism framework
 - Dependency Injection
