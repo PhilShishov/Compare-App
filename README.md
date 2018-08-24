@@ -5,11 +5,6 @@ Main function: Compare XML & XSD files -> Search for differences -> Add them to 
 
  <img src="https://image.ibb.co/gLds89/compareapp.png" width="900" height="450">
 
-## MVVM pattern and Prism framework
-- Dependency Injection
-- DelegateCommands
-- SuppressUnmanagedCodeSecurity - control unmanaged code
-
 ## Using 
 
 .Net Framework 4.5.2
@@ -20,3 +15,8 @@ Main function: Compare XML & XSD files -> Search for differences -> Add them to 
 - Add a chosen node to XML
 - Add a chosen node and its children to XML 
 4. Save XML file ot a new or already existing file
+
+## MVVM pattern and Prism framework
+- Dependency Injection
+- DelegateCommands
+- SuppressUnmanagedCodeSecurity - control unmanaged code
