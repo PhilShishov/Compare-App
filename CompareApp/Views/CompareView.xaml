@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="CompareApp.Views.CompareView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:CompareApp.ViewModels"
+             xmlns:core="clr-namespace:CompareApp.Core"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance viewModels:CompareViewModel}"
+             d:DesignHeight="478.571" d:DesignWidth="500">
+    
+    <UserControl.Resources>
+        <!-- Template for the menu item viewmodel -->
+        <DataTemplate DataType="{x:Type core:MenuItem}">
+            <MenuItem Header="{Binding Header}" Command="{Binding Command}"/>
+        </DataTemplate>
+        
+        <!-- Template for binding viewmodel properties to the ui element -->
+        <Style TargetType="{x:Type TreeViewItem}" x:Key="XElementStyle">
+            <Setter Property="IsExpanded" Value="{Binding IsExpanded}"/>
+        </Style>
+        
+        <!-- Template for the xml viewmodel -->
+        <HierarchicalDataTemplate DataType="{x:Type viewModels:XmlNodeViewModel}" ItemsSource="{Binding Children}" x:Key="XElementTemplate">
+            <TextBlock Text="{Binding Header}">
+                <TextBlock.ContextMenu>
+                    <ContextMenu ItemsSource="{Binding Menu}">
+                        <!-- Style for binding viewmodel properties to the ui element -->
+                        <ContextMenu.ItemContainerStyle>
+                            <Style TargetType="MenuItem">
+                                <Setter Property="Header" Value="{Binding Header}" />
+                                <Setter Property="Command" Value="{Binding Command }" />
+                            </Style>
+                        </ContextMenu.ItemContainerStyle>
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+                <TextBlock.Style>
+                    <!-- Style for binding viewmodel properties to the ui element -->
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsMissing}" Value="True">
+                                <Setter Property="Foreground" Value="Red"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </HierarchicalDataTemplate>
+    </UserControl.Resources>
+    
+    <Grid Margin="5">
+
+        <Grid.RowDefinitions>
+            <!-- File area -->
+            <RowDefinition Height = "Auto" />
+            <!-- Comparison area -->
+            <RowDefinition Height = "*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "*" />
+            <ColumnDefinition Width = "*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0 0 0 5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding PathXsd}" IsReadOnly="True" Margin="0 0 5 5"/>
+            <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding PathXml}" IsReadOnly="True" Margin="0 0 5 5"/>
+
+            <Button Grid.Row="0" Grid.Column="1" Content="Load Xsd" Command="{Binding LoadXsdCommand}" Width="60" Margin="0 0 5 5"/>
+            <Button Grid.Row="1" Grid.Column="1" Content="Load Xml" Command="{Binding LoadXmlCommand}" Width="60" Margin="0 0 5 5"/>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                <Button Content="Compare" Command="{Binding CompareCommand}" Width="60" Margin="0 0 10 0"/>
+                <Button Content="Save" Command="{Binding SaveCommand}" Width="60"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="0" Grid.Row="1" Margin="0 0 5 0" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="XML" FontWeight="Bold" FontSize="16"/>
+            <TreeView Grid.Row="1" BorderThickness="0" ItemsSource="{Binding Xml}" ItemTemplate="{DynamicResource XElementTemplate}" ItemContainerStyle="{DynamicResource XElementStyle}"/>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1" Margin="0 0 5 0" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Text="XSD" FontWeight="Bold" FontSize="16"/>
+            <TreeView Grid.Row="1" BorderThickness="0" ItemsSource="{Binding Xsd}" ItemTemplate="{DynamicResource XElementTemplate}" ItemContainerStyle="{DynamicResource XElementStyle}"/>
+        </Grid>
+    </Grid>
+</UserControl>
