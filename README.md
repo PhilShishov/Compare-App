@@ -6,7 +6,7 @@ Main function: Compare XML & XSD files -> Search for differences -> Add them to 
 ## Build status
 
 | Compare App |
-|:--------------|:--------------|:-------------------------|
+|:--------------|
 [![Build status](https://ci.appveyor.com/api/projects/status/8dskbn908e27vevx/branch/master?svg=true)](https://ci.appveyor.com/project/NikolayIT/asp-net-mvc-template/branch/master)
 
  <img src="https://image.ibb.co/gLds89/compareapp.png" width="900" height="450">
