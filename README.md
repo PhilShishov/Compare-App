@@ -7,7 +7,7 @@ Main function: Compare XML & XSD files -> Search for differences -> Add them to 
 
 | Compare App |
 |:--------------|
-[![Build status](https://ci.appveyor.com/api/projects/status/3fe1696ae02990ae1249/master?svg=true)](https://ci.appveyor.com/project/PhilShishov/compare-app)
+[![Build status](https://ci.appveyor.com/api/projects/status/8dskbn908e27vevx/master?svg=true)](https://ci.appveyor.com/project/PhilShishov/compare-app)
 
  <img src="https://image.ibb.co/gLds89/compareapp.png" width="900" height="450">
 
