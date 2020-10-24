@@ -13,7 +13,7 @@ Main function: Compare XML & XSD files -> Search for differences -> Add them to 
 
 ## Using 
 
-.Net Framework 4.5.2
+.NET Framework 4.5.2
 1. Load one XSD and one XML file. Click on Compare to search for the differences
 2. Open a random red marked dropdown
 3. Right-click on a node and choose : 
