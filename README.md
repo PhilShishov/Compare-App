@@ -1,5 +1,5 @@
 # CompareApp
-C#, .NET, XAML, WPF
+C# .NET, XAML, WPF
 
 Main function: Compare XML & XSD files -> Search for differences -> Add them to missing -> Save
 
