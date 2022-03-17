@@ -1,5 +1,5 @@
 # CompareApp
-C# .NET, XAML, WPF
+C# .NET 6.0, XAML, WPF
 
 Main function: Compare XML & XSD files -> Search for differences -> Add them to missing -> Save
 
@@ -12,8 +12,6 @@ Main function: Compare XML & XSD files -> Search for differences -> Add them to 
  <img src="https://image.ibb.co/gLds89/compareapp.png" width="900" height="450">
 
 ## Using 
-
-.NET Framework 6.0
 1. Load one XSD and one XML file. Click on Compare to search for the differences
 2. Open a random red marked dropdown
 3. Right-click on a node and choose : 
