@@ -1,6 +1,12 @@
 version: 1.0.{build}
 before_build:
 - cmd: nuget restore "CompareApp/CompareApp.sln"
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET Core sdk 6.0.x'
+  inputs:
+    version: 6.0.x
+    includePreviewVersions: true
 build:
   project: CompareApp/CompareApp.sln
   verbosity: minimal
