@@ -1,4 +1,7 @@
 version: 1.0.{build}
 image: Visual Studio 2022
+before_build:
+- cmd: nuget restore "CompareApp/CompareApp.sln"
 build:
+  project: CompareApp/CompareApp.sln
   verbosity: minimal
